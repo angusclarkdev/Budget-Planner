@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Form, Button, Menu, Segment  } from 'semantic-ui-react';
 
@@ -17,37 +17,24 @@ padding: 1rem 1rem;
 `;
 
 
-export default class Userform extends Component {
-  state = {
-    activeItem: 'Log In',
-    buttonText: 'Log In',
-    Inputs: [
-      {name: 'Sign up', position: 'right'}
-    ]
-  }
-
-  handleItemClick = (e, { name }) => this.setState({
-     activeItem: name,
-     buttonText: name
-   })
-
-  render() {
-
+const Userform = (props) => {
   return (
     <Wrapper>
       <Menu tabular attached='top'>
-        <Menu.Item name='Sign Up' position='right' active={this.state.activeItem === 'Sign Up'} onClick={this.handleItemClick} />
-          <Menu.Item name='Log In'  active={this.state.activeItem === 'Log In'} onClick={this.handleItemClick} />
+        <Menu.Item name='Sign Up' position={props.position} active={props.activeItem === 'Sign Up'} onClick={props.activeItem === 'Log In' ? props.handleClick : null}   />
+          <Menu.Item name='Log In' active={props.activeItem === 'Log In'} onClick={props.activeItem === 'Sign Up' ? props.handleClick : null} />
       </Menu>
       <Segment attached='bottom'>
-<Form>
-  <Form.Input type='email' icon="user" iconPosition='left' placeholder='E-mail address' />
-  <Form.Input type='password' icon='lock' iconPosition='left' placeholder='Password' />
-  <Button primary content={this.state.buttonText} fluid  />
-</Form>
-</Segment>
-</Wrapper>
+        <Form>
+          { props.visible && <Form.Input name='firstname' type='text' placeholder='First name' onChange={props.handleChange} />}
+          { props.visible && <Form.Input name='lastname' type='text' placeholder='Last name' onChange={props.handleChange} />}
+          <Form.Input name='email' type='email' icon={props.visible || 'lock'} placeholder='E-mail' onChange={props.handleChange} />
+          <Form.Input name='password' type='password' icon={props.visible || 'user'} placeholder='Password' onChange={props.handleChange} />
+          <Button fluid primary content={props.activeItem} />
+        </Form>
 
+      </Segment>
+</Wrapper>
   )
 }
-}
+export default Userform;

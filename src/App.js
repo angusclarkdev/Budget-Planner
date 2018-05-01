@@ -8,7 +8,7 @@ import { injectGlobal } from 'styled-components';
 
 import Title from './components/Title';
 import Kicker from './components/Kicker';
-import Form from './components/Form/Form';
+import LandingWindow from './components/LandingWindow';
 import Footer from './components/Footer';
 
 // CSS //
@@ -43,7 +43,7 @@ class App extends Component {
 
     <Title />
     <Kicker />
-    <Form />
+    <LandingWindow />
     <Footer />
 
   </Wrapper>
