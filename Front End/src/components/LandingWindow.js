@@ -17,8 +17,7 @@ export default class LandingWindow extends Component {
       activeItem: 'Log In',
 
     }
-
-
+    
     this.ReturningUserInfo = [];
   }
 
@@ -33,11 +32,6 @@ export default class LandingWindow extends Component {
       [event.target.name]: event.target.value
     })
   }
-
-    /* for each tab (Log in & Sign up), I need to:
-3. Update input fields
-    */
-
 render() {
     return(
       <Userform logIn={this.state.logIn} signUp={this.state.signUp} visible={this.state.visible} inputs={this.state.inputs} handleClick={this.handleClick}  handleChange={this.handleChange} buttonText={this.state.buttonText} position={this.state.position} activeItem={this.state.activeItem}  />
