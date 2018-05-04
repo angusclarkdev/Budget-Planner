@@ -11,6 +11,8 @@ import Kicker from './components/Kicker';
 import LandingWindow from './components/LandingWindow';
 import Footer from './components/Footer';
 
+
+
 // CSS //
 
 injectGlobal`
@@ -24,7 +26,7 @@ injectGlobal`
   body {
     height: inherit;
     width: inherit;
-    color: hotpink;
+    color: white;
     font-family: 'Helvetiva', sans-serif;
     text-align: center;
   }
@@ -32,7 +34,7 @@ injectGlobal`
 
 const Wrapper = styled.section`
   width: inherit;
-  background-color: greenyellow;
+  background-color: olivedrab;
   `;
 
 class App extends Component {
@@ -40,12 +42,9 @@ class App extends Component {
   render() {
     return (
   <Wrapper>
-
     <Title />
     <Kicker />
     <LandingWindow />
-    <Footer />
-
   </Wrapper>
 )
   }

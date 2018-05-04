@@ -6,8 +6,7 @@ import { Form, Button, Menu, Segment  } from 'semantic-ui-react';
 // CSS //
 
 const Wrapper = styled.section`
-width: 40%;
-background-color: white;
+
 margin: 2rem auto;
 display: flex;
 flex-direction: column;

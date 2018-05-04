@@ -1,24 +1,25 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
 const router = express.Router();
-
+const User = require('../models/user');
+/*
 // Get list of users from database //
 router.get('/users', (req, res) => {
   res.send({type: 'GET'});
 })
-
+*/
 // Add new user to database //
 router.post('/users', (req, res) => {
+  let user = new User(req.body);
+  user.save(function(err) {
+    if (err)  {
+      return handleError(err);
+    }
+    res.send(user)
+  })
+  })
 
-  res.send({
-    type: 'POST',
-    email: req.body.email,
-    password: req.body.password
-  });
-  console.log(req.body);
-})
-
-// Updates a user in database //
+/*// Updates a user in database //
 router.put('/users/:id', (req, res) => {
   res.send({type: 'PUT'});
 })
@@ -27,5 +28,5 @@ router.put('/users/:id', (req, res) => {
 router.delete('/users/:id', (req, res) => {
   res.send({type: 'DELETE'});
 })
-
+*/
 module.exports = router;
