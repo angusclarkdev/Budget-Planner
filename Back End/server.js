@@ -12,8 +12,8 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 
 // Routes //
-
-app.use('/api', require('./routes/api'));
+const routes = require('./routes/api');
+app.use(routes);
 
 // listen for requests //
 app.listen(4000, function() {

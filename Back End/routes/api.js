@@ -9,15 +9,13 @@ router.get('/users', (req, res) => {
 })
 */
 // Add new user to database //
-router.post('/users', (req, res) => {
-  let user = new User(req.body);
-  user.save(function(err) {
-    if (err)  {
-      return handleError(err);
-    }
-    res.send(user)
+router.post('/api/users', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  User.create(req.body, function(err, user) {
+    if (err) return console.log(err);
   })
-  })
+})
 
 /*// Updates a user in database //
 router.put('/users/:id', (req, res) => {

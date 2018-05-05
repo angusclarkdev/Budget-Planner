@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import 'semantic-ui-css/semantic.min.css';
 import { injectGlobal } from 'styled-components';
 
 
 // local imports //
 
-import Title from './components/Title';
-import Kicker from './components/Kicker';
-import LandingWindow from './components/LandingWindow';
-import Footer from './components/Footer';
+import LandingWindow from './components/LandingWindow/LandingWindow';
+
 
 
 
@@ -29,23 +27,29 @@ injectGlobal`
     color: white;
     font-family: 'Helvetiva', sans-serif;
     text-align: center;
+    background-color: olivedrab;
+  }
+  button {
+    color: white;
+    background-color: inherit;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    :hover {
+      color: blue;
+    }
+    width: fit-content;
+    margin: 0 auto;
   }
 `;
 
-const Wrapper = styled.section`
-  width: inherit;
-  background-color: olivedrab;
-  `;
+
 
 class App extends Component {
 
   render() {
     return (
-  <Wrapper>
-    <Title />
-    <Kicker />
     <LandingWindow />
-  </Wrapper>
 )
   }
 }
